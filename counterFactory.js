@@ -10,11 +10,13 @@ export function counterFactory()
   var c = 0;
   function increment()
   {
-    return ++c;
+    c += 1;
+    return c;
   }
   function decrement()
   {
-    return --c;
+    c -= 1;
+    return c;
   }
   return {
     increment,
