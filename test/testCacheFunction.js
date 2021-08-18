@@ -1,5 +1,5 @@
 import { cacheFunction } from "../cacheFunction.js";
-const cb = x => x + ": This argument was not used before!" ;
+const cb = x => "cb() is invoked for " + x ;
 let argUsed = cacheFunction(cb);
 console.log(argUsed.call());
 console.log(argUsed.call(1));
