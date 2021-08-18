@@ -11,13 +11,13 @@
 export function cacheFunction(cb) {
   let cache = {};
   function call(a){
-    if (cache[a]) 
+    if (!cache[a]) 
     {
+      cache[a] = cb(a);
       return cache[a];
     } 
     else
     {
-      cache[num] = cb(a);
       return cache[a];
     }
   }
