@@ -8,22 +8,18 @@
 //}
 
 
-export function cacheFunction(cb) 
-{
-  const cache = new Set();
-  function call(a) 
-  {
-    if (!cache.has(a)) {
-      console.log(cache);
-      cache.add(a);
-      return cb(a);
-    } 
-    else 
+export function cacheFunction(cb) {
+  let cache = {};
+  function call(num){
+    if (cache[num]) 
     {
-      console.log(cache);
-      return cache;
+      return cache[num];
+    } 
+    else
+    {
+      cache[num] = cb(num);
+      return cache[num];
     }
-  } 
+  }
   return {call};
 }
-
