@@ -10,15 +10,15 @@
 
 export function cacheFunction(cb) {
   let cache = {};
-  function call(num){
-    if (cache[num]) 
+  function call(a){
+    if (cache[a]) 
     {
-      return cache[num];
+      return cache[a];
     } 
     else
     {
-      cache[num] = cb(num);
-      return cache[num];
+      cache[num] = cb(a);
+      return cache[a];
     }
   }
   return {call};
